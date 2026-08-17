@@ -1,7 +1,37 @@
 /* ============================================================
    THUNDERRIFT STUDIO — style.css
-   Token system : voir variables ci-dessous
    ============================================================ */
+
+/* ---------- Polices locales ----------
+   Dépose tes fichiers dans le dossier fonts/ avec exactement ces noms :
+   - fonts/title.ttf   → police des titres (ex: Chakra Petch, ou toute police "display")
+   - fonts/text.ttf    → police du texte courant (ex: Inter)
+   - fonts/mono.ttf    → police des labels / nav / éléments UI (ex: JetBrains Mono)
+
+   Si tu as des .otf au lieu de .ttf, remplace juste l'extension dans
+   les url() ci-dessous ET format('truetype') par format('opentype').
+------------------------------------------------------------- */
+@font-face {
+  font-family: 'TR-Title';
+  src: url('../fonts/title.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TR-Text';
+  src: url('../fonts/text.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TR-Mono';
+  src: url('../fonts/mono.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Couleurs */
@@ -15,10 +45,11 @@
   --text-primary: #F4F6FB;
   --text-muted: #8890A6;
 
-  /* Typographie */
-  --font-display: 'Chakra Petch', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* Typographie : le nom local en premier, avec un fallback système
+     tant que les fichiers dans fonts/ ne sont pas encore en place */
+  --font-display: 'TR-Title', 'Arial Narrow', sans-serif;
+  --font-body: 'TR-Text', -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'TR-Mono', 'Courier New', monospace;
 
   /* Rythme */
   --section-pad: clamp(4rem, 8vw, 8rem);
@@ -178,7 +209,10 @@ button { font-family: inherit; }
   font-size: .85rem;
   color: var(--text-muted);
   transition: color .2s ease;
+  margin-right: 0; /* le gap gère déjà l'espacement ; fallback ci-dessous pour vieux navigateurs */
 }
+.main-nav a:not(:last-child) { margin-right: 2rem; }
+.main-nav { gap: 0; } /* évite le cumul gap + margin sur navigateurs récents */
 .main-nav a:hover { color: var(--text-primary); }
 
 .nav-toggle {
