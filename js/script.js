@@ -1,10 +1,9 @@
 // ============================================================
-// THUNDERRIFT STUDIO — script.js
+// THUNDERRIFT STUDIO - All rights reserved.
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---- Header : fond solide au scroll ---- */
   const header = document.getElementById('site-header');
   const backToTop = document.getElementById('backToTop');
 
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ---- Menu mobile ---- */
   const navToggle = document.getElementById('navToggle');
   const mobileNav = document.getElementById('mobileNav');
 
@@ -26,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
   });
 
-  // Ferme le menu mobile après un clic sur un lien
   mobileNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileNav.classList.remove('open');
@@ -35,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---- Année dynamique dans le footer ---- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
