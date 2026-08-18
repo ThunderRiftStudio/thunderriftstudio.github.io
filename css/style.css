@@ -1,16 +1,7 @@
 /* ============================================================
-   THUNDERRIFT STUDIO — style.css
+   THUNDERRIFT STUDIO — All rights reserved.
    ============================================================ */
 
-/* ---------- Polices locales ----------
-   Dépose tes fichiers dans le dossier fonts/ avec exactement ces noms :
-   - fonts/title.ttf   → police des titres (ex: Chakra Petch, ou toute police "display")
-   - fonts/text.ttf    → police du texte courant (ex: Inter)
-   - fonts/mono.ttf    → police des labels / nav / éléments UI (ex: JetBrains Mono)
-
-   Si tu as des .otf au lieu de .ttf, remplace juste l'extension dans
-   les url() ci-dessous ET format('truetype') par format('opentype').
-------------------------------------------------------------- */
 @font-face {
   font-family: 'TR-Title';
   src: url('../fonts/title.ttf') format('truetype');
@@ -19,7 +10,6 @@
   font-display: swap;
 }
 @font-face {
-  /* Police unique et dédiée réservée au nom "ThunderRift" (logo header + footer) */
   font-family: 'TR-Brand';
   src: url('../fonts/thr.ttf') format('truetype');
   font-weight: 400 700;
@@ -42,7 +32,6 @@
 }
 
 :root {
-  /* Couleurs */
   --bg-void: #0A0D14;
   --bg-panel: #11151F;
   --bg-panel-2: #171C29;
@@ -53,19 +42,15 @@
   --text-primary: #F4F6FB;
   --text-muted: #8890A6;
 
-  /* Typographie : le nom local en premier, avec un fallback système
-     tant que les fichiers dans fonts/ ne sont pas encore en place */
   --font-display: 'TR-Title', 'Arial Narrow', sans-serif;
   --font-body: 'TR-Text', -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'TR-Mono', 'Courier New', monospace;
   --font-brand: 'TR-Brand', 'Arial Narrow', sans-serif;
 
-  /* Rythme */
   --section-pad: clamp(4rem, 8vw, 8rem);
   --container-w: 1200px;
 }
 
-/* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -79,8 +64,6 @@ body {
   position: relative;
 }
 
-/* Image de fond fixe (ne défile pas avec le contenu), étirée de façon élastique
-   pour coller exactement aux dimensions de l'écran (ex: 16:9), sans répétition. */
 body::before {
   content: '';
   position: fixed;
@@ -139,7 +122,6 @@ button { font-family: inherit; }
   max-width: 30ch;
 }
 
-/* ---------- Boutons / liens ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -173,9 +155,6 @@ button { font-family: inherit; }
 }
 .link-arrow:hover { text-decoration: underline; }
 
-/* ============================================================
-   HEADER
-   ============================================================ */
 .site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -220,10 +199,10 @@ button { font-family: inherit; }
   font-size: .85rem;
   color: var(--text-muted);
   transition: color .2s ease;
-  margin-right: 0; /* le gap gère déjà l'espacement ; fallback ci-dessous pour vieux navigateurs */
+  margin-right: 0;
 }
 .main-nav a:not(:last-child) { margin-right: 2rem; }
-.main-nav { gap: 0; } /* évite le cumul gap + margin sur navigateurs récents */
+.main-nav { gap: 0; }
 .main-nav a:hover { color: var(--text-primary); }
 
 .nav-toggle {
@@ -262,9 +241,6 @@ button { font-family: inherit; }
 }
 .mobile-nav.open { display: flex; }
 
-/* ============================================================
-   HERO
-   ============================================================ */
 .hero {
   position: relative;
   min-height: 88vh;
@@ -307,9 +283,6 @@ button { font-family: inherit; }
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* ============================================================
-   GAMES
-   ============================================================ */
 .games {
   padding: var(--section-pad) 0;
   border-top: 1px solid var(--line);
@@ -350,9 +323,6 @@ button { font-family: inherit; }
 }
 .game-info p:not(.game-tag) { color: var(--text-muted); }
 
-/* ============================================================
-   ABOUT
-   ============================================================ */
 .about {
   position: relative;
   overflow: hidden;
@@ -414,9 +384,6 @@ button { font-family: inherit; }
 }
 .about-item p { color: var(--text-muted); font-size: .95rem; }
 
-/* ============================================================
-   TEAM
-   ============================================================ */
 .team {
   padding: var(--section-pad) 0;
 }
@@ -439,9 +406,6 @@ button { font-family: inherit; }
 .team-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: .25rem; }
 .team-role { font-family: var(--font-mono); font-size: .8rem; color: var(--text-muted); }
 
-/* ============================================================
-   CONTACT
-   ============================================================ */
 .contact {
   padding: var(--section-pad) 0;
   background: var(--bg-panel);
@@ -482,9 +446,6 @@ button { font-family: inherit; }
 }
 .social-link:hover { color: var(--rift-blue); border-color: var(--rift-blue); transform: translateY(-2px); }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 2.5rem 0;
@@ -527,9 +488,6 @@ button { font-family: inherit; }
 .footer-socials a { color: var(--text-muted); }
 .footer-socials a:hover { color: var(--rift-blue); }
 
-/* ============================================================
-   BACK TO TOP (bouton flottant)
-   ============================================================ */
 .back-to-top {
   position: fixed;
   bottom: 2rem;
@@ -556,9 +514,6 @@ button { font-family: inherit; }
 }
 .back-to-top:hover { border-color: var(--rift-blue); }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width: 860px) {
   .main-nav { display: none; }
   .nav-toggle { display: flex; }
@@ -573,7 +528,6 @@ button { font-family: inherit; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
 
-/* ---------- Accessibilité : mouvement réduit ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .rift-path {
