@@ -52,23 +52,37 @@
     <div class="hero-bg" aria-hidden="true">
       <svg class="rift-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <linearGradient id="riftLine" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#5B8CFF"/>
-            <stop offset="100%" stop-color="#A9C4FF"/>
+          <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#C8DAFF"/>
+            <stop offset="45%"  stop-color="#5B8CFF"/>
+            <stop offset="100%" stop-color="#3A68E0"/>
           </linearGradient>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="6" result="blur"/>
+          <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="8" result="blur"/>
             <feMerge>
               <feMergeNode in="blur"/>
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
           </filter>
         </defs>
-        <path id="riftPath" class="rift-path" filter="url(#glow)"
-          d="M980,-20 L790,260 L900,300 L560,650 L640,470 L520,430 L680,120 L560,180 L620,-20"
-          fill="none" stroke="url(#riftLine)" stroke-width="3"/>
-        <path class="rift-path rift-path-faint" d="M980,-20 L790,260 L900,300 L560,650 L640,470 L520,430 L680,120 L560,180 L620,-20"
-          fill="none" stroke="#5B8CFF" stroke-width="14" opacity="0.06"/>
+
+        <!-- Halo large et flou (derrière) -->
+        <path class="bolt-halo"
+          d="M 1055,-25 L 685,388 L 855,428 L 498,935"
+          fill="none" stroke="#5B8CFF" stroke-width="32"
+          stroke-linejoin="miter" stroke-linecap="butt"/>
+
+        <!-- Éclair principal -->
+        <path class="bolt-core" filter="url(#glow)"
+          d="M 1055,-25 L 685,388 L 855,428 L 498,935"
+          fill="none" stroke="url(#boltGrad)" stroke-width="5.5"
+          stroke-linejoin="miter" stroke-linecap="butt"/>
+
+        <!-- Reflet intérieur fin (disparaît après le draw) -->
+        <path class="bolt-shine"
+          d="M 1055,-25 L 685,388 L 855,428 L 498,935"
+          fill="none" stroke="#FFFFFF" stroke-width="0.9"
+          stroke-linejoin="miter" opacity="0.45"/>
       </svg>
     </div>
 

@@ -241,6 +241,7 @@ button { font-family: inherit; }
 }
 .mobile-nav.open { display: flex; }
 
+/* ─── Hero ──────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 88vh;
@@ -250,17 +251,60 @@ button { font-family: inherit; }
   background: radial-gradient(ellipse at 70% 20%, var(--bg-panel-2) 0%, var(--bg-void) 60%);
 }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
+
+/* ─── Hero bolt ─────────────────────────────── */
 .rift-svg { width: 100%; height: 100%; }
-.rift-path {
-  stroke-dasharray: 1600;
-  stroke-dashoffset: 1600;
-  animation: draw-rift 2.2s cubic-bezier(.6,0,.2,1) .3s forwards;
-}
-.rift-path-faint { animation: none; opacity: .06; }
-@keyframes draw-rift {
-  to { stroke-dashoffset: 0; }
+
+.bolt-halo {
+  opacity: 0;
+  animation:
+    halo-in    0.35s ease 1.9s forwards,
+    glow-pulse 3.2s ease-in-out 2.25s infinite;
 }
 
+.bolt-core {
+  stroke-dasharray: 1520;
+  stroke-dashoffset: 1520;
+  animation: draw-bolt 1.55s cubic-bezier(.42,0,.12,1) 0.25s forwards;
+}
+
+.bolt-shine {
+  stroke-dasharray: 1520;
+  stroke-dashoffset: 1520;
+  opacity: 0;
+  animation:
+    draw-bolt  1.55s cubic-bezier(.42,0,.12,1) 0.35s forwards,
+    shine-fade 0.55s ease 2.1s forwards;
+}
+
+@keyframes draw-bolt {
+  0%   { stroke-dashoffset: 1520; opacity: 0; }
+  4%   { opacity: 1; }
+  /* rush du haut vers le shoulder */
+  52%  { stroke-dashoffset: 360; }
+  /* micro-stutter électrique #1 */
+  58%  { stroke-dashoffset: 400; }
+  /* reprise rapide vers le bas */
+  78%  { stroke-dashoffset: 85;  }
+  /* micro-stutter électrique #2 */
+  85%  { stroke-dashoffset: 115; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes halo-in {
+  to { opacity: 0.11; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.11; }
+  50%       { opacity: 0.22; }
+}
+
+@keyframes shine-fade {
+  to { opacity: 0; }
+}
+
+/* ─── Hero content ──────────────────────────── */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -514,6 +558,7 @@ button { font-family: inherit; }
 }
 .back-to-top:hover { border-color: var(--rift-blue); }
 
+/* ─── Responsive ────────────────────────────── */
 @media (max-width: 860px) {
   .main-nav { display: none; }
   .nav-toggle { display: flex; }
@@ -528,11 +573,11 @@ button { font-family: inherit; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
 
+/* ─── Reduced motion ────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .rift-path {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
+  .bolt-core  { animation: none; stroke-dashoffset: 0; }
+  .bolt-shine { animation: none; opacity: 0; }
+  .bolt-halo  { animation: none; opacity: 0.11; }
   .btn, .social-link, .back-to-top { transition: none; }
 }
