@@ -13,6 +13,7 @@
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
+<!-- Top anchor, used by the logo for "back to top" -->
 <div id="top"></div>
 
 <header class="site-header" id="site-header">
@@ -46,7 +47,13 @@
 
 <main id="main-content">
 
+  <!-- ================= HERO ================= -->
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="img/hero-poster.jpg" aria-hidden="true">
+      <source src="img/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay" aria-hidden="true"></div>
+
     <div class="hero-bg" aria-hidden="true">
       <svg class="rift-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
         <defs>
@@ -64,16 +71,19 @@
           </filter>
         </defs>
 
+        <!-- Halo large et flou (derrière) -->
         <path class="bolt-halo"
           d="M 1055,-25 L 685,388 L 855,428 L 498,935"
           fill="none" stroke="#5B8CFF" stroke-width="32"
           stroke-linejoin="miter" stroke-linecap="butt"/>
 
+        <!-- Éclair principal -->
         <path class="bolt-core" filter="url(#glow)"
           d="M 1055,-25 L 685,388 L 855,428 L 498,935"
           fill="none" stroke="url(#boltGrad)" stroke-width="5.5"
           stroke-linejoin="miter" stroke-linecap="butt"/>
 
+        <!-- Reflet intérieur fin (disparaît après le draw) -->
         <path class="bolt-shine"
           d="M 1055,-25 L 685,388 L 855,428 L 498,935"
           fill="none" stroke="#FFFFFF" stroke-width="0.9"
@@ -93,10 +103,11 @@
 
   </section>
 
+  <!-- ================= GAMES ================= -->
   <section class="games" id="games">
     <div class="section-head">
       <p class="eyebrow">Our productions</p>
-      <h2>Showcases for our games.</h2>
+      <h2>Showcases for our games</h2>
     </div>
 
     <article class="game-card">
@@ -124,6 +135,7 @@
     </article>
   </section>
 
+  <!-- ================= ABOUT ================= -->
   <section class="about" id="about">
     <img src="img/logo.png" alt="" class="about-watermark" aria-hidden="true">
     <div class="about-inner">
@@ -133,6 +145,7 @@
     </div>
   </section>
 
+  <!-- ================= TEAM ================= -->
   <section class="team" id="team">
     <div class="section-head">
       <p class="eyebrow">The team</p>
@@ -148,6 +161,7 @@
     </div>
   </section>
 
+  <!-- ================= CONTACT / SOCIALS ================= -->
   <section class="contact" id="contact">
     <div class="contact-inner">
       <p class="eyebrow">Contact</p>
@@ -174,9 +188,10 @@
 
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="footer-copy">© 2026 Stars Games Entertainment. All rights reserved.</p>
+    <p class="footer-copy">©/™ ThunderRift Studio and Stars Games Entertainment. All rights reserved.</p>
     <p class="footer-copy">Games includes third-party assets, including audio and visual content,
 used under free, royalty-free, or Creative Commons licenses. All third-party assets remain the property of their respective owners.
 No affiliation or endorsement is implied.</p>
