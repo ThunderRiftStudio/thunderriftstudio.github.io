@@ -244,7 +244,8 @@ button { font-family: inherit; }
 /* ─── Hero ──────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 88vh;
+  height: 100vh;       /* plein écran exact — scroll révèle la suite */
+  min-height: 560px;   /* plancher pour les très petits écrans */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -596,4 +597,48 @@ button { font-family: inherit; }
   .bolt-shine { animation: none; opacity: 0; }
   .bolt-halo  { animation: none; opacity: 0.11; }
   .btn, .social-link, .back-to-top { transition: none; }
+}
+
+/* ============================================================
+   PAGE TEMPLATE — styles réutilisables pour toutes les pages
+   ============================================================ */
+.page-hero {
+  padding: calc(var(--section-pad) + 4rem) 0 var(--section-pad);
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ─── Bloc titre + texte (copiable-collable) ─ */
+.page-block {
+  margin-bottom: 4rem;
+  max-width: 860px;
+}
+.page-block:last-child { margin-bottom: 0; }
+
+.page-block-title {
+  font-family: var(--font-display); /* title.ttf */
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+  text-align: left;
+}
+
+.page-block-title .accent { color: var(--rift-blue); }
+
+.page-block-text {
+  font-family: var(--font-body); /* text.ttf */
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+  text-align: left;
+  max-width: 72ch;
+}
+
+.page-block-text + .page-block-text {
+  margin-top: .85rem; /* plusieurs paragraphes empilés */
 }
