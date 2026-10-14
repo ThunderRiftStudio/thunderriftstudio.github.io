@@ -642,3 +642,35 @@ button { font-family: inherit; }
 .page-block-text + .page-block-text {
   margin-top: .85rem; /* plusieurs paragraphes empilés */
 }
+
+/* ─── Font Abriph (dédiée à la page anti-cheat) ─ */
+@font-face {
+  font-family: 'TR-Abriph';
+  src: url('../fonts/abriph.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Page Abriph ────────────────────────────── */
+.abriph-banner {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-bottom: 1px solid var(--line);
+}
+
+.abriph-title {
+  font-family: 'TR-Abriph', 'Arial Narrow', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.05;
+  margin: 0 0 1.25rem 0;
+  text-align: left;
+  letter-spacing: .02em;
+}
+
+.abriph-title .accent { color: var(--rift-blue); }
